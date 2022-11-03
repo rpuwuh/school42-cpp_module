@@ -6,7 +6,7 @@
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:37:58 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/03 00:20:02 by bpoetess         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:30:49 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     s2 = sign(p1, b1, c1);
     s3 = sign(p1, c1, a1);
 
-    has_neg = (s1 < 0) || (s2 < 0) || (s3 < 0);
-    has_pos = (s1 > 0) || (s2 > 0) || (s3 > 0);
+    has_neg = (s1 <= 0) || (s2 <= 0) || (s3 <= 0);
+    has_pos = (s1 >= 0) || (s2 >= 0) || (s3 >= 0);
     return (!(has_neg && has_pos));
 
 }
@@ -45,7 +45,7 @@ int main(void)
 	Point	a(0, 0);
 	Point	b(0, 1);
 	Point	c(1, 0);
-	Point	p(0, 0);
+	Point	p(0.8, 0.004);
 
 	std::cout << bsp(a, b, c, p) << std::endl;
 }
