@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 16:53:10 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/05 00:09:29 by bpoetess         ###   ########.fr       */
+/*   Created: 2022/11/05 23:41:08 by bpoetess          #+#    #+#             */
+/*   Updated: 2022/11/06 19:08:38 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "../includes/Ice.hpp"
 
-#include <iostream>
-#include <string>
-#include <locale>
-
-class Animal
+void	Ice::use(ICharacter& target)
 {
-protected:
-	std::string	type;
+	std::cout <<  "* shoots an ice bolt at " << target.getName() << " *";
+}
 
-public:
-	std::string		getType(void) const;
-	virtual void	makeSound(void) const = 0;
-	Animal			&operator= (Animal const &anotherAnimal);
-	Animal(Animal &anotherAnimal);
-	Animal(void);
-	virtual ~Animal();
+AMateria* Ice::clone() const
+{
+	return (new Ice());
+}
 
-};
+Ice &Ice::operator=(Ice const &initialIce)
+{
+	this->type = initialIce.type;
+	return (*this);
+}
 
-#endif
+Ice::Ice(void)
+{
+	this->type = "ice";
+}
+
+Ice::Ice(Ice const &initialIce) : AMateria(initialIce.getType())
+{
+}
+
+Ice::~Ice()
+{
+}

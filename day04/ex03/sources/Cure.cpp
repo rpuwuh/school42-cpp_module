@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 16:53:10 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/04 18:38:44 by bpoetess         ###   ########.fr       */
+/*   Created: 2022/11/05 23:41:56 by bpoetess          #+#    #+#             */
+/*   Updated: 2022/11/06 19:07:43 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/WrongCat.hpp"
+#include "../includes/Cure.hpp"
 
-void	WrongCat::makeSound(void) const
+void	Cure::use(ICharacter& target)
 {
-	std::cout << "Some woem, woeM" << std::endl;
+	std::cout << "* heals " << target.getName() <<"'s wounds *";
 }
 
-WrongCat::WrongCat(void)
+AMateria* Cure::clone() const
 {
-	std::cout << "Default WrongCat constructor has been called" << std::endl;
-	this->type = "Cat";
+	return (new Cure());
 }
 
-WrongCat::~WrongCat()
+Cure &Cure::operator=(Cure const &initialCure)
 {
-	std::cout << "Default WrongCat destructor has been called" << std::endl;
+	this->type = initialCure.type;
+	return (*this);
+}
+
+Cure::Cure()
+{
+	this->type = "cure";
+}
+
+Cure::Cure(Cure const &initialCure) : AMateria(initialCure.getType())
+{
+}
+
+Cure::~Cure()
+{
 }

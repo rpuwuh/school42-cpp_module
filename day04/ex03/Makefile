@@ -6,7 +6,7 @@
 #    By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/29 15:54:18 by bpoetess          #+#    #+#              #
-#    Updated: 2022/11/04 21:20:09 by bpoetess         ###   ########.fr        #
+#    Updated: 2022/11/06 19:46:19 by bpoetess         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,15 @@ CC					=	c++
 FLAGS				=	-Wall -Wextra -Werror -std=c++98
 INCLUDES			=	-I$(HEADERS_DIR)
 
-HEADERS_LIST		=	Animal.hpp Brain.hpp Cat.hpp Dog.hpp\
-							WrongAnimal.hpp WrongCat.hpp
+HEADERS_LIST		=	AMateria.hpp Character.hpp Cure.hpp\
+							ICharacter.hpp Ice.hpp MateriaSource.hpp
 
 HEADERS_DIR			=	./includes/
 HEADERS				=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 SOURCES_DIR			=	./sources/
-SOURCES_LIST		=	Animal.cpp Brain.cpp Cat.cpp Dog.cpp\
-							WrongAnimal.cpp WrongCat.cpp\
-							main.cpp 
+SOURCES_LIST		=	AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp\
+							MateriaSource.cpp
 
 SOURCES				=	$(addprefix $(SOURCES_DIR), $(SOURCES_LIST))
 
@@ -56,4 +55,3 @@ re					:
 					@$(MAKE) all
 
 .PHONY				:	all clean fclean re
-
