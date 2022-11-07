@@ -6,7 +6,7 @@
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 20:22:43 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/06 23:44:02 by bpoetess         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:54:26 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy.getName())
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
 	if (grade > 150)
-		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
-	else if (grade < 1)
 		throw(std::runtime_error("Bureaucrat::GradeTooLowException"));
+	else if (grade < 1)
+		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
 	_grade = grade;
 }
 
@@ -50,7 +50,7 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 Bureaucrat Bureaucrat::operator++()
 {
 	if (this->_grade - 1 < 1)
-		throw(std::runtime_error("Bureaucrat::GradeTooLowException"));
+		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
 	this->_grade--;
 	return (*this);
 }
@@ -59,7 +59,7 @@ Bureaucrat Bureaucrat::operator++(int)
 {
 	Bureaucrat	old(*this);
 	if (this->_grade - 1 < 1)
-		throw(std::runtime_error("Bureaucrat::GradeTooLowException"));
+		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
 	this->_grade--;
 	return(old);
 }
@@ -67,7 +67,7 @@ Bureaucrat Bureaucrat::operator++(int)
 Bureaucrat Bureaucrat::operator--()
 {
 	if (this->_grade + 1 > 150)
-		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
+		throw(std::runtime_error("Bureaucrat::GradeTooLowException"));
 	this->_grade++;
 	return (*this);
 }
@@ -76,7 +76,7 @@ Bureaucrat Bureaucrat::operator--(int)
 {
 	Bureaucrat	old(*this);
 	if (this->_grade + 1 > 150)
-		throw(std::runtime_error("Bureaucrat::GradeTooHighException"));
+		throw(std::runtime_error("Bureaucrat::GradeTooLowException"));
 	this->_grade++;
 	return (old);
 }

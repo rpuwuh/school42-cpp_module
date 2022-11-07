@@ -6,7 +6,7 @@
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 20:22:31 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/07 17:46:50 by bpoetess         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:12:14 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Bureaucrat
 		
 		// Functions
 		void		signForm(Form &signingForm);
+		void		executeForm(Form const & form);
 
 		// Getters / Setters
 		std::string	getName() const;

@@ -6,7 +6,7 @@
 #    By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/29 15:54:18 by bpoetess          #+#    #+#              #
-#    Updated: 2022/11/07 17:45:43 by bpoetess         ###   ########.fr        #
+#    Updated: 2022/11/07 18:45:10 by bpoetess         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,17 @@ CC					=	c++
 FLAGS				=	-Wall -Wextra -Werror -std=c++98
 INCLUDES			=	-I$(HEADERS_DIR)
 
-HEADERS_LIST		=	Bureaucrat.hpp Form.hpp
+HEADERS_LIST		=	Bureaucrat.hpp Form.hpp\
+							PresidentialPardonForm.hpp RobotomyRequestForm.hpp\
+							ShrubberyCreationForm.hpp
 
 HEADERS_DIR			=	./includes/
 HEADERS				=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 SOURCES_DIR			=	./sources/
-SOURCES_LIST		=	Bureaucrat.cpp Form.cpp main.cpp
+SOURCES_LIST		=	Bureaucrat.cpp Form.cpp\
+							PresidentialPardonForm.cpp RobotomyRequestForm.cpp\
+							ShrubberyCreationForm.cpp main.cpp
 
 
 SOURCES				=	$(addprefix $(SOURCES_DIR), $(SOURCES_LIST))
@@ -54,3 +58,4 @@ re					:
 					@$(MAKE) all
 
 .PHONY				:	all clean fclean re
+

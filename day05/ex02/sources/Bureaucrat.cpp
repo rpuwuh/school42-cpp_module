@@ -6,7 +6,7 @@
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 20:22:43 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/07 17:53:34 by bpoetess         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:50:20 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,19 @@ void		Bureaucrat::signForm(Form &signingForm)
 		<< signingForm.getName()
 		<< " because " << e.what()
 		<< std::endl;
+	}
+}
+
+void		Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << this->_name << " couldn’t execute " << form.getName()
+			<< " because " << e.what() << std::endl;
 	}
 }
