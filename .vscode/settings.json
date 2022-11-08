@@ -30,6 +30,15 @@
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
 		"utility": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"deque": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp",
+		"functional": "cpp",
+		"optional": "cpp",
+		"ranges": "cpp",
+		"set": "cpp",
+		"iomanip": "cpp",
+		"sstream": "cpp"
 	}
 }

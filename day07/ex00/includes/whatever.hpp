@@ -6,7 +6,7 @@
 /*   By: bpoetess <bpoetess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 03:29:36 by bpoetess          #+#    #+#             */
-/*   Updated: 2022/11/08 03:43:13 by bpoetess         ###   ########.fr       */
+/*   Updated: 2022/11/08 08:17:38 by bpoetess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <locale>
 
 template <typename T>
-void	swap (T something1, T something2)
+void	swap (T &something1, T &something2)
 {
 	T	tmpsomething;
 
